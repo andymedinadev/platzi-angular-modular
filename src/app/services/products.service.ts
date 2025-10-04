@@ -42,6 +42,29 @@ export class ProductsService {
     return this.http.get<Product>(`${this.API_URL}/${id}`);
   }
 
+  getProductsByCategory(id: string, limit?: number, offset?: number) {
+    if (limit != null || offset != null) {
+      let params = new HttpParams();
+
+      if (limit != null) {
+        params = params.set('limit', limit.toString());
+      }
+
+      if (offset != null) {
+        params = params.set('offset', offset.toString());
+      }
+
+      return this.http.get<Product[]>(
+        `${environment.API_URL}/categories/${id}/products`,
+        { params }
+      );
+    }
+
+    return this.http.get<Product[]>(
+      `${environment.API_URL}/categories/${id}/products`
+    );
+  }
+
   create(data: CreateProductDTO) {
     return this.http.post<Product>(this.API_URL, data);
   }
