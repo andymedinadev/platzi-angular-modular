@@ -1,0 +1,51 @@
+<!-- <button (click)="createNewProduct()" aria-label="Crear Producto">
+  Crear Producto
+</button> -->
+<div class="products--grid">
+  <app-product
+    *ngFor="let product of products"
+    [product]="product"
+    (addProduct)="onAddToShoppingCart($event)"
+    (showProduct)="onShowDetail($event)"
+  ></app-product>
+  <div class="product-detail" [class.active]="showProductDetail">
+    <div>
+      <button (click)="toggleProductDetail()" aria-label="Cerrar Detalle">
+        Close
+      </button>
+
+      <div *ngIf="productChosen">
+        <h1>{{ productChosen.title }}</h1>
+        <swiper class="swiperElement" [slidesPerView]="1">
+          <ng-template swiperSlide *ngFor="let img of productChosen.images">
+            <img [src]="img" alt="ProductImage" />
+          </ng-template>
+        </swiper>
+        <p>{{ productChosen.description }}</p>
+        <button
+          (click)="updateProduct()"
+          [disabled]="!productChosen"
+          aria-label="Editar Producto"
+        >
+          EDITAR Producto
+        </button>
+        <button
+          (click)="deleteProduct()"
+          [disabled]="!productChosen"
+          aria-label="Eliminar Producto"
+        >
+          ELIMINAR Producto
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="display: flex; align-items: center; margin: 1em">
+    <button
+      (click)="loadMore()"
+      style="width: 100px; height: 80px"
+      aria-label="Cargar más productos"
+    >
+      Cargar más productos
+    </button>
+  </div>
+</div>

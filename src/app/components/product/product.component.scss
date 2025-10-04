@@ -1,0 +1,83 @@
+p,
+h2 {
+  margin: 0;
+}
+
+.app-product-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  padding: 1.2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  transition: box-shadow 0.2s;
+  min-width: 220px;
+  max-width: 100%;
+  margin: 0.5rem 0;
+
+  &:hover {
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.14);
+  }
+
+  app-img {
+    width: 100%;
+    max-width: 180px;
+    height: 140px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+    background: #f7fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #2b6cb0;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    color: #4a5568;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .product-actions {
+    display: flex;
+    gap: 0.7rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  button {
+    flex: 1 1 0;
+    min-width: 120px;
+    background: #3182ce;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 0.4rem 1rem;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: background 0.2s;
+
+    &:hover {
+      background: #2b6cb0;
+    }
+
+    &:first-child {
+      background: #38a169;
+
+      &:hover {
+        background: #2f855a;
+      }
+    }
+  }
+}

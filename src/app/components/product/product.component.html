@@ -1,0 +1,12 @@
+<div class="app-product-card">
+  <app-img
+    *ngIf="product.images.length > 0"
+    [img]="product.images[0]"
+  ></app-img>
+  <h2>{{ product.price | currency }}</h2>
+  <p>{{ product.title }}</p>
+  <div class="product-actions">
+    <button (click)="onShowDetail()">Ver detalle</button>
+    <button (click)="onAddToCart()">Agregar al carrito</button>
+  </div>
+</div>
