@@ -7,6 +7,7 @@ import { SwiperModule } from 'swiper/angular';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ImgComponent } from './components/img/img.component';
+import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductComponent } from './components/product/product.component';
 import { ProductsComponent } from './components/products/products.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -35,9 +36,10 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     LoginComponent,
     RegisterComponent,
     RecoveryComponent,
-    ProfileComponent,
+    ProductDetailComponent,
     ProductComponent,
     ProductsComponent,
+    ProfileComponent,
     NavComponent,
     ReversePipe,
     TimeAgoPipe,

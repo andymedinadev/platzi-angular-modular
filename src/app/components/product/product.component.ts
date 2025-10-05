@@ -39,4 +39,8 @@ export class ProductComponent {
   onShowDetail() {
     this.showProduct.emit(this.product.id);
   }
+
+  stringId() {
+    return String(this.product.id);
+  }
 }
