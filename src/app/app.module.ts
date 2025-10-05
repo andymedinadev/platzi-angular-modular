@@ -10,6 +10,7 @@ import { CategoryComponent } from './website/pages/category/category.component';
 import { HighlightDirective } from './website/directives/highlight.directive';
 import { HomeComponent } from './website/pages/home/home.component';
 import { ImgComponent } from './website/components/img/img.component';
+import { LayoutComponent } from './website/components/layout/layout.component';
 import { LoginComponent } from './website/pages/login/login.component';
 import { MyCartComponent } from './website/pages/my-cart/my-cart.component';
 import { NavComponent } from './website/components/nav/nav.component';
@@ -32,6 +33,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     HighlightDirective,
     HomeComponent,
     ImgComponent,
+    LayoutComponent,
     LoginComponent,
     MyCartComponent,
     NavComponent,
