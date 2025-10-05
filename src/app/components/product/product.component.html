@@ -8,7 +8,7 @@
   <h2>{{ product.price | currency }}</h2>
   <p>{{ product.title }}</p>
   <div class="product-actions">
-    <button (click)="onShowDetail()">Ver detalle</button>
+    <a routerLink="." [queryParams]="{ product: product.id }">Ver detalle</a>
     <button (click)="onAddToCart()">Agregar al carrito</button>
   </div>
 </div>

@@ -19,6 +19,12 @@ export class ProductsComponent {
   total = 0;
 
   @Input() products: Product[] = [];
+  @Input()
+  set productId(id: string | null) {
+    if (id) {
+      this.onShowDetail(Number(id));
+    }
+  }
 
   @Output() readonly onLoadMore = new EventEmitter<void>();
 
@@ -43,7 +49,10 @@ export class ProductsComponent {
 
   onShowDetail(id: number) {
     this.productsService.getProductById(id).subscribe((data) => {
-      this.toggleProductDetail();
+      if (!this.showProductDetail) {
+        this.showProductDetail = true;
+      }
+
       this.productChosen = data;
     });
   }

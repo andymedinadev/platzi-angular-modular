@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product.model';
@@ -12,8 +13,12 @@ export class HomeComponent {
   products: Product[] = [];
   limit = 10;
   offset = 0;
+  productId: string | null = null;
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
     this.productsService
@@ -22,6 +27,11 @@ export class HomeComponent {
         this.products = data;
         this.offset += this.limit;
       });
+
+    this.route.queryParamMap.subscribe((params) => {
+      this.productId = params.get('product');
+      console.log('productId', this.productId);
+    });
   }
 
   handleLoadMore() {
