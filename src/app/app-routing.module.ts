@@ -1,13 +1,17 @@
 import { NgModule } from '@angular/core';
-import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
-import { NotFoundComponent } from './website/pages/not-found/not-found.component';
+import { NotFoundComponent } from 'src/app/website/pages/not-found/not-found.component';
+import { CustomPreloadService } from 'src/app/services/custom-preload.service';
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./website/website.module').then((m) => m.WebsiteModule),
+    data: {
+      preload: true,
+    },
   },
   {
     path: 'cms',
@@ -20,7 +24,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(routes, {
-      preloadingStrategy: PreloadAllModules,
+      preloadingStrategy: CustomPreloadService,
     }),
   ],
   exports: [RouterModule],

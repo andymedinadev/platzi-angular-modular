@@ -23,6 +23,9 @@ const routes: Routes = [
           import('src/app/website/pages/category/category.module').then(
             (m) => m.CategoryModule
           ),
+        data: {
+          preload: true,
+        },
       },
       { path: 'login', component: LoginComponent },
       { path: 'my-cart', component: MyCartComponent },
