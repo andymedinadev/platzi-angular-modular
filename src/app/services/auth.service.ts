@@ -23,7 +23,7 @@ export class AuthService {
       );
   }
 
-  profile() {
+  getProfile() {
     return this.http.get<User>(`${this.API_URL}/profile`);
   }
 
