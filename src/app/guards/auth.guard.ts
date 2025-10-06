@@ -6,14 +6,15 @@ import {
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
-import { Observable } from 'rxjs';
-import { TokenService } from '../services/token.service';
+import { map, Observable, take } from 'rxjs';
+
+import { AuthService } from 'src/app/services/auth.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private tokenService: TokenService, private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -23,13 +24,15 @@ export class AuthGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    const token = this.tokenService.getToken();
-
-    if (!token) {
-      this.router.navigateByUrl('/home');
-      return false;
-    }
-
-    return true;
+    return this.authService.user$.pipe(
+      take(1),
+      map((user) => {
+        if (!user) {
+          this.router.navigateByUrl('/home');
+          return false;
+        }
+        return true;
+      })
+    );
   }
 }

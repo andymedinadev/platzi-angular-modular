@@ -16,7 +16,6 @@ import { Category } from 'src/app/models/product.model';
 export class NavComponent implements OnInit {
   activeMenu = false;
   counter = 0;
-  token = '';
   profile: User | null = null;
   categories: Category[] = [];
 
@@ -33,6 +32,10 @@ export class NavComponent implements OnInit {
     });
 
     this.getAllCategories();
+
+    this.authService.user$.subscribe((user) => {
+      this.profile = user;
+    });
   }
 
   toggleMenu() {
@@ -40,9 +43,8 @@ export class NavComponent implements OnInit {
   }
 
   login() {
-    this.authService.login('test@mail.com', 'password').subscribe((rta) => {
-      this.token = rta.access_token;
-      this.getProfile();
+    this.authService.login('test@mail.com', 'password').subscribe(() => {
+      this.router.navigate(['/profile']);
     });
   }
 

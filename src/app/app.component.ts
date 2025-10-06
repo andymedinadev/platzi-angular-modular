@@ -1,22 +1,34 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import { FilesService } from './services/files.service';
-import { UsersService } from './services/users.service';
+import { FilesService } from 'src/app/services/files.service';
+import { UsersService } from 'src/app/services/users.service';
+import { AuthService } from 'src/app/services/auth.service';
+import { TokenService } from 'src/app/services/token.service';
 
 @Component({
   selector: 'app-root',
   template: '<router-outlet></router-outlet>',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   imgParent = '';
   showImg = true;
   imgRta = '';
 
   constructor(
     private filesService: FilesService,
-    private usersService: UsersService
+    private usersService: UsersService,
+    private authService: AuthService,
+    private tokenService: TokenService
   ) {}
+
+  ngOnInit(): void {
+    const token = this.tokenService.getToken();
+
+    if (token) {
+      this.authService.getProfile().subscribe();
+    }
+  }
 
   createUser() {
     this.usersService
