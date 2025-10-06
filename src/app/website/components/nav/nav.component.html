@@ -41,7 +41,9 @@
       </ul>
     </nav>
     <div class="info">
-      <div *ngIf="profile" class="account">{{ profile.email }}</div>
+      <div *ngIf="profile" class="account">
+        <a routerLink="/profile">{{ profile.email }}</a>
+      </div>
       <button *ngIf="!profile" (click)="login()">Login</button>
       <div class="cart">
         <a href="">

@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { HomeComponent } from './pages/home/home.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { LoginComponent } from './pages/login/login.component';
-import { MyCartComponent } from './pages/my-cart/my-cart.component';
-import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { RegisterComponent } from './pages/register/register.component';
-import { RecoveryComponent } from './pages/recovery/recovery.component';
+import { AuthGuard } from 'src/app/guards/auth.guard';
+import { HomeComponent } from 'src/app/website/pages/home/home.component';
+import { LayoutComponent } from 'src/app/website/components/layout/layout.component';
+import { LoginComponent } from 'src/app/website/pages/login/login.component';
+import { MyCartComponent } from 'src/app/website/pages/my-cart/my-cart.component';
+import { ProductDetailComponent } from 'src/app/website/pages/product-detail/product-detail.component';
+import { ProfileComponent } from 'src/app/website/pages/profile/profile.component';
+import { RegisterComponent } from 'src/app/website/pages/register/register.component';
+import { RecoveryComponent } from 'src/app/website/pages/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -32,7 +33,11 @@ const routes: Routes = [
       { path: 'register', component: RegisterComponent },
       { path: 'recovery', component: RecoveryComponent },
       { path: 'product/:id', component: ProductDetailComponent },
-      { path: 'profile', component: ProfileComponent },
+      {
+        path: 'profile',
+        canActivate: [AuthGuard],
+        component: ProfileComponent,
+      },
     ],
   },
 ];
