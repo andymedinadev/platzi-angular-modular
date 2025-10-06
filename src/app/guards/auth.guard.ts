@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -12,7 +13,7 @@ import { TokenService } from '../services/token.service';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private tokenService: TokenService) {}
+  constructor(private tokenService: TokenService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -24,10 +25,11 @@ export class AuthGuard implements CanActivate {
     | UrlTree {
     const token = this.tokenService.getToken();
 
-    if (token) {
-      return true;
+    if (!token) {
+      this.router.navigateByUrl('/home');
+      return false;
     }
 
-    return false;
+    return true;
   }
 }

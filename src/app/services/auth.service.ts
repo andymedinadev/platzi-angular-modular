@@ -30,4 +30,8 @@ export class AuthService {
   refreshToken(refreshToken: string) {
     return this.http.post(`${this.API_URL}/refresh-token`, refreshToken);
   }
+
+  logout() {
+    this.tokenService.removeToken();
+  }
 }
