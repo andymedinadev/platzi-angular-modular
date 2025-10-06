@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CategoryComponent } from './pages/category/category.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { LoginComponent } from './pages/login/login.component';
@@ -18,7 +17,13 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: '/home', pathMatch: 'full' },
       { path: 'home', component: HomeComponent },
-      { path: 'category/:id', component: CategoryComponent },
+      {
+        path: 'category',
+        loadChildren: () =>
+          import('src/app/website/pages/category/category.module').then(
+            (m) => m.CategoryModule
+          ),
+      },
       { path: 'login', component: LoginComponent },
       { path: 'my-cart', component: MyCartComponent },
       { path: 'register', component: RegisterComponent },
