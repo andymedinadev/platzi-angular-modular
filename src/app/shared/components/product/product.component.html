@@ -2,7 +2,7 @@
   <a [routerLink]="['/product', stringId()]">
     <app-img
       *ngIf="product.images.length > 0"
-      [img]="product.images[0]"
+      [changeImg]="product.images[0]"
     ></app-img>
   </a>
   <h2>{{ product.price | currency }}</h2>

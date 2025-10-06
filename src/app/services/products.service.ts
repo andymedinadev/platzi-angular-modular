@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
-import { environment } from 'src/environments/environment';
-import { checkTime } from 'src/app/interceptors/time.interceptor';
+import { environment } from '@environments/environment';
+import { checkTime } from '@interceptors/time.interceptor';
 import {
   CreateProductDTO,
   Product,
   UpdateProductDTO,
-} from 'src/app/models/product.model';
+} from '@models/product.model';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { onExit } from 'src/app/guards/exit.guard';
+import { onExit } from '@guards/exit.guard';
 
 @Component({
   selector: 'app-register',

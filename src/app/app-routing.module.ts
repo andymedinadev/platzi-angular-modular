@@ -2,8 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { QuicklinkStrategy } from 'ngx-quicklink';
 
-import { NotFoundComponent } from 'src/app/website/pages/not-found/not-found.component';
-import { AdminGuard } from 'src/app/guards/admin.guard';
+import { NotFoundComponent } from '@website/pages/not-found/not-found.component';
+import { AdminGuard } from '@guards/admin.guard';
 
 const routes: Routes = [
   {

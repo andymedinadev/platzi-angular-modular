@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FilesService } from 'src/app/services/files.service';
-import { UsersService } from 'src/app/services/users.service';
-import { AuthService } from 'src/app/services/auth.service';
-import { TokenService } from 'src/app/services/token.service';
+import { FilesService } from '@services/files.service';
+import { UsersService } from '@services/users.service';
+import { AuthService } from '@services/auth.service';
+import { TokenService } from '@services/token.service';
 
 @Component({
   selector: 'app-root',

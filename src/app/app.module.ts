@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { QuicklinkModule } from 'ngx-quicklink';
 
-import { AppComponent } from 'src/app/app.component';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { TimeInterceptor } from 'src/app/interceptors/time.interceptor';
-import { TokenInterceptor } from 'src/app/interceptors/token.interceptor';
+import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
+import { TimeInterceptor } from '@interceptors/time.interceptor';
+import { TokenInterceptor } from '@interceptors/token.interceptor';
 
 @NgModule({
   declarations: [AppComponent],

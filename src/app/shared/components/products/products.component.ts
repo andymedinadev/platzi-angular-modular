@@ -4,10 +4,10 @@ import {
   CreateProductDTO,
   Product,
   UpdateProductDTO,
-} from 'src/app/models/product.model';
+} from '@models/product.model';
 
-import { StoreService } from 'src/app/services/store.service';
-import { ProductsService } from 'src/app/services/products.service';
+import { StoreService } from '@services/store.service';
+import { ProductsService } from '@services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -26,7 +26,7 @@ export class ProductsComponent {
     }
   }
 
-  @Output() readonly onLoadMore = new EventEmitter<void>();
+  @Output() readonly loadMoreOutput = new EventEmitter<void>();
 
   showProductDetail = false;
   productChosen: Product | null = null;
@@ -112,6 +112,6 @@ export class ProductsComponent {
   }
 
   loadMore() {
-    this.onLoadMore.emit();
+    this.loadMoreOutput.emit();
   }
 }

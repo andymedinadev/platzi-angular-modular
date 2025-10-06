@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AuthGuard } from 'src/app/guards/auth.guard';
-import { ExitGuard } from 'src/app/guards/exit.guard';
-import { HomeComponent } from 'src/app/website/pages/home/home.component';
-import { LayoutComponent } from 'src/app/website/components/layout/layout.component';
-import { LoginComponent } from 'src/app/website/pages/login/login.component';
-import { MyCartComponent } from 'src/app/website/pages/my-cart/my-cart.component';
-import { ProductDetailComponent } from 'src/app/website/pages/product-detail/product-detail.component';
-import { ProfileComponent } from 'src/app/website/pages/profile/profile.component';
-import { RegisterComponent } from 'src/app/website/pages/register/register.component';
-import { RecoveryComponent } from 'src/app/website/pages/recovery/recovery.component';
+import { AuthGuard } from '@guards/auth.guard';
+import { ExitGuard } from '@guards/exit.guard';
+import { HomeComponent } from '@website/pages/home/home.component';
+import { LayoutComponent } from '@website/components/layout/layout.component';
+import { LoginComponent } from '@website/pages/login/login.component';
+import { MyCartComponent } from '@website/pages/my-cart/my-cart.component';
+import { ProductDetailComponent } from '@website/pages/product-detail/product-detail.component';
+import { ProfileComponent } from '@website/pages/profile/profile.component';
+import { RegisterComponent } from '@website/pages/register/register.component';
+import { RecoveryComponent } from '@website/pages/recovery/recovery.component';
 
 const routes: Routes = [
   {
@@ -22,7 +22,7 @@ const routes: Routes = [
       {
         path: 'category',
         loadChildren: () =>
-          import('src/app/website/pages/category/category.module').then(
+          import('@website/pages/category/category.module').then(
             (m) => m.CategoryModule
           ),
         data: {
