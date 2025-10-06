@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CmsRoutingModule } from './cms-routing.module';
-import { GridComponent } from './pages/grid/grid.component';
-import { LayoutComponent } from './components/layout/layout.component';
-import { TasksComponent } from './pages/tasks/tasks.component';
+import { CmsRoutingModule } from 'src/app/cms/cms-routing.module';
+import { GridComponent } from 'src/app/cms/pages/grid/grid.component';
+import { LayoutComponent } from 'src/app/cms/components/layout/layout.component';
+import { TasksComponent } from 'src/app/cms/pages/tasks/tasks.component';
 
 @NgModule({
   declarations: [GridComponent, TasksComponent, LayoutComponent],
