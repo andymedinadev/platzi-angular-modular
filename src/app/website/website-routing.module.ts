@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from 'src/app/guards/auth.guard';
+import { ExitGuard } from 'src/app/guards/exit.guard';
 import { HomeComponent } from 'src/app/website/pages/home/home.component';
 import { LayoutComponent } from 'src/app/website/components/layout/layout.component';
 import { LoginComponent } from 'src/app/website/pages/login/login.component';
@@ -30,7 +31,11 @@ const routes: Routes = [
       },
       { path: 'login', component: LoginComponent },
       { path: 'my-cart', component: MyCartComponent },
-      { path: 'register', component: RegisterComponent },
+      {
+        path: 'register',
+        component: RegisterComponent,
+        canDeactivate: [ExitGuard],
+      },
       { path: 'recovery', component: RecoveryComponent },
       { path: 'product/:id', component: ProductDetailComponent },
       {
