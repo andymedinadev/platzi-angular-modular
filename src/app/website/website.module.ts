@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { SwiperModule } from 'swiper/angular';
+import { QuicklinkModule } from 'ngx-quicklink';
 
 import { HomeComponent } from 'src/app/website/pages/home/home.component';
 import { LayoutComponent } from 'src/app/website/components/layout/layout.component';
@@ -28,6 +29,12 @@ import { SharedModule } from 'src/app/shared/shared.module';
     RecoveryComponent,
     RegisterComponent,
   ],
-  imports: [CommonModule, SharedModule, SwiperModule, WebsiteRoutingModule],
+  imports: [
+    CommonModule,
+    QuicklinkModule,
+    SharedModule,
+    SwiperModule,
+    WebsiteRoutingModule,
+  ],
 })
 export class WebsiteModule {}
